@@ -36,11 +36,13 @@ namespace LearnReflection
             ViewMetadataUseReflection.PropertiesFields(type);
             ViewMetadataUseReflection.AttributesFields(type);
             Console.WriteLine(ViewMetadataUseReflection.GetAssembly(typeof(TestLibrary.Car)));
+            
+            Console.ForegroundColor = ConsoleColor.Red;
+            TestAtributRealization testAtribut = new TestAtributRealization("Sasha", 22);
+            var e = testAtribut.GetType();
+            ViewMetadataUseReflection.AttributesFields(e);
+            ViewMetadataUseReflection.ListMetods(e);
 
-            // Получение значения атрибута
-            var attribute = type.GetCustomAttributes(false);
-            foreach(var a in attribute)
-                Console.WriteLine(a);
 
             Console.ReadLine();
         }

@@ -18,8 +18,10 @@ namespace LearnReflection
         public static void ListMetods(Type t)
         {
             MethodInfo[] mi = t.GetMethods();
-            foreach(var i in mi)
-                Console.WriteLine($"{i.Name}");
+            foreach (var i in mi)
+            {
+                Console.WriteLine($"{i.Name} {i.Attributes} ");//почему мне показывает что атрибута у этого поля нет??????
+            }
         }
         public static void ListFields(Type t)
         {
@@ -30,11 +32,10 @@ namespace LearnReflection
         public static void PropertiesFields(Type t)
         {
             foreach(var atr in t.GetProperties())
-                Console.WriteLine("{0} {1}  ",atr.Name,atr.PropertyType);
+                Console.WriteLine("{0} {1}   ", atr.Name, atr.PropertyType);
         }
         public static void AttributesFields(Type t)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
             var a = t.GetCustomAttributes();
             if (a.Any(i => i.GetType() == typeof(TestLibrary.ColorAttribute)))
             {
@@ -42,7 +43,6 @@ namespace LearnReflection
                     Console.WriteLine(q);
             }
             Console.WriteLine(a);
-            Console.ResetColor();
         }
     }
 }

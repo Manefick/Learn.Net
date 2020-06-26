@@ -46,8 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MaleAttribute.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestAtributRealization.cs" />
     <Compile Include="ViewMetadataUseReflection.cs" />
   </ItemGroup>
   <ItemGroup>
