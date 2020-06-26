@@ -2,6 +2,7 @@
 
 namespace TestLibrary
 {
+    [Color(ConsoleColor.Black,"Black")]
     public abstract class Car
     {
         public string Brand { get; }

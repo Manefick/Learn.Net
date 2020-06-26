@@ -20,21 +20,28 @@ namespace LearnReflection
             //    ViewMetadataUseReflection.ListMetods(t);
             //}
 
-            // использование сборки через Assembly
-            Assembly assembly = ViewMetadataUseReflection.GetAssembly(typeof(TestLibrary.Car));
-            Type[] types  = assembly.GetTypes();
-            foreach (var t in types)
-            {
-                ViewMetadataUseReflection.ListFields(t);
-                ViewMetadataUseReflection.ListMetods(t);
-                
-            }
-            ViewMetadataUseReflection.PropertiesFields(types[0]);
+            // использование сборки через Assembly(будет описанно все класы что находяться в сборке)
+            //Assembly assembly = ViewMetadataUseReflection.GetAssembly(typeof(TestLibrary.Car));
+            //Type[] types = assembly.GetTypes();
+            //foreach (var t in types)
+            //{
+            //    ViewMetadataUseReflection.ListFields(t);
+            //    ViewMetadataUseReflection.ListMetods(t);
+            //    ViewMetadataUseReflection.AttributesFields(t);
 
-            // рефлексия через Type 
+            //}
+
+            // рефлексия через Type (будет описан только класс кар)
             Type type = typeof(TestLibrary.Car);
-            ViewMetadataUseReflection.ListMetods(type);
-            Console.WriteLine(ViewMetadataUseReflection.GetAssembly(typeof(TestLibrary.Car)));     
+            ViewMetadataUseReflection.PropertiesFields(type);
+            ViewMetadataUseReflection.AttributesFields(type);
+            Console.WriteLine(ViewMetadataUseReflection.GetAssembly(typeof(TestLibrary.Car)));
+
+            // Получение значения атрибута
+            var attribute = type.GetCustomAttributes(false);
+            foreach(var a in attribute)
+                Console.WriteLine(a);
+
             Console.ReadLine();
         }
     }

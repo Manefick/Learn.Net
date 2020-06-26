@@ -30,7 +30,19 @@ namespace LearnReflection
         public static void PropertiesFields(Type t)
         {
             foreach(var atr in t.GetProperties())
-                Console.WriteLine("{0} {1} ",atr.Name,atr.PropertyType);
+                Console.WriteLine("{0} {1}  ",atr.Name,atr.PropertyType);
+        }
+        public static void AttributesFields(Type t)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            var a = t.GetCustomAttributes();
+            if (a.Any(i => i.GetType() == typeof(TestLibrary.ColorAttribute)))
+            {
+                foreach(var q in a)
+                    Console.WriteLine(q);
+            }
+            Console.WriteLine(a);
+            Console.ResetColor();
         }
     }
 }
