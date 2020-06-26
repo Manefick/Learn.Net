@@ -13,6 +13,7 @@ namespace LearnReflection
         {
             return type.Assembly;
         }
+        
         public static void ListMetods(Type t)
         {
             MethodInfo[] mi = t.GetMethods();
