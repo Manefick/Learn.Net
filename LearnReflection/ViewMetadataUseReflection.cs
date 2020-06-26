@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Security.Cryptography;
 
 namespace LearnReflection
 {
@@ -25,6 +26,11 @@ namespace LearnReflection
             var fildName = from n in t.GetFields() select n.Name;
             foreach(var name in fildName)
                 Console.WriteLine($"{name}");
+        }
+        public static void PropertiesFields(Type t)
+        {
+            foreach(var atr in t.GetProperties())
+                Console.WriteLine("{0} {1} ",atr.Name,atr.PropertyType);
         }
     }
 }
