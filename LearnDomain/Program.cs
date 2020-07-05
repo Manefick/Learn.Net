@@ -72,12 +72,6 @@ namespace LearnDomain
             //выгружаем домен
             AppDomain.Unload(newDomain);
         }
-
-        private static void NewDomain_DomainUnload(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         static void DisplayAssamblyByDomain(AppDomain ad)
         {
             var loadDomains = from d in ad.GetAssemblies() orderby d.GetName().Name select d;
