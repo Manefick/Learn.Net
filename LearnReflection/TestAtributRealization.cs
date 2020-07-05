@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestLibrary;
 
 namespace LearnReflection
 {
@@ -10,6 +11,7 @@ namespace LearnReflection
     class TestAtributRealization
     {
         public string name { get; }
+        [Color]
         public int age { get; }
         public TestAtributRealization(string n, int a)
         {

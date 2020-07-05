@@ -42,6 +42,10 @@ namespace LearnReflection
             var e = testAtribut.GetType();
             ViewMetadataUseReflection.AttributesFields(e);
             ViewMetadataUseReflection.ListMetods(e);
+            Console.WriteLine("ListField");
+            ViewMetadataUseReflection.ListFields(e);
+            Console.WriteLine("PropertiesField");
+            ViewMetadataUseReflection.PropertiesFields(e);
 
 
             Console.ReadLine();
