@@ -5,7 +5,7 @@ using System.Text;
 namespace TestLibrary
 {
     //Использование атрибута который устанавлевает что можно помечать этим атрибутом
-    //[AttributeUsage(AttributeTargets.Method)]
+    //[AttributeUsage(AttributeTargets.Class|AttributeTargets.Property)]
     public class ColorAttribute :Attribute
     {
         public ConsoleColor color { get; set; } = ConsoleColor.Red;

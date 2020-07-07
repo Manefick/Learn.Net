@@ -10,6 +10,8 @@ namespace LearnReflection
     [Male("dkf")]
     class TestAtributRealization
     {
+        public int field;
+
         public string name { get; }
         [Color]
         public int age { get; }

@@ -28,9 +28,9 @@ namespace LearnReflection
         }
         public static void ListFields(Type t)//почему не отображаеться ничего
         {
-            var fildName = from n in t.GetFields() select n.Name;
+            var fildName = t.GetFields();
             foreach(var name in fildName)
-                Console.WriteLine($"{name}");
+                Console.WriteLine($"{name.Name}");
         }
         public static void PropertiesFields(Type t)
         {

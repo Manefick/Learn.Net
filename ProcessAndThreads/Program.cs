@@ -11,7 +11,8 @@ namespace ProcessAndThreads
     {
         static void Main(string[] args)
         {
-            GetProcessByPID(3316);
+            ListAllRaningProcess();
+            GetProcessByPID(944);
             StartAndKillProcess();
 
             Console.ReadLine();
