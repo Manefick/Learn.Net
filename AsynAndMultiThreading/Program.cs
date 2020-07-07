@@ -31,7 +31,7 @@ namespace AsynAndMultiThreading
             #endregion
 
             Console.WriteLine("Main");
-            TestAsync();
+            TestAsync(20);
             Console.WriteLine("Continue MAin");
 
             for (int i = 0; i < 10; i++)
@@ -60,19 +60,17 @@ namespace AsynAndMultiThreading
             }
         }
 
-        static void Metod()
+        static void Metod(int k)
         {
-            for(int i =0;i<10;i++)
+            for(int i =0;i<k;i++)
                 Console.WriteLine("Async");
         }
         //Асинхронный метод 
-        static async Task TestAsync()
+        static async Task TestAsync(int x)
         {
             Console.WriteLine("Begin Async");
             //Создаеться новый асинхронный поток
-            await Task.Run(Metod);
-            //или вот так 
-            //await Task.Run(() => Metod());
+            await Task.Run(() => Metod(x));
             Console.WriteLine("End Async");
         }
     }
