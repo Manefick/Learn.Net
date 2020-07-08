@@ -10,15 +10,13 @@ namespace Learn.Net
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Kalk(695, 2));
+            int[] test = { 2, 1, 1, 1, 1, 1, 1 };
+            Console.WriteLine(test.GroupBy(x=>x).Single(x=>x.Count()==1).Key);//what it is&&&
+            //Как через линкю найти  повторяющияся символ 
+            
+
 
             Console.ReadLine();
-        }
-        static double Kalk(double x, double y)
-        {
-            if (x< 1)
-                return Kalk(x, y) / x;
-            return Math.Pow((double)x.ToString()[0],y)+Kalk(x/10,y+1);
         }
     }
 }
