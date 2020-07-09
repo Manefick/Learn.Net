@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace WorkWithFielsAndSerialization
 {
@@ -25,7 +26,14 @@ namespace WorkWithFielsAndSerialization
             //CreatAndWriteText(new string[] {"qqqqq","wwwwwww","ggggggggg" }, @"C:\Users\alexg\OneDrive\Рабочий стол\testFile.txt");
             //WriteText();
             //ReadFiel(DisplayDirectoryFile(@"E:\UseIO","*.txt"));
-            ReadText();
+            //ReadText();
+            #region Serialization
+            //People people = new People("Sasha", "Hrunchuk", 22);
+            //SerializateAsBinaryFormat(people, @"E:\UseIO\testSer.dat");
+            //Deserializate(@"E:\UseIO\testSer.dat");
+            //Console.WriteLine(Deserializate(@"E:\UseIO\testSer.dat"));
+            
+            #endregion
 
 
             Console.ReadLine();
@@ -38,11 +46,11 @@ namespace WorkWithFielsAndSerialization
         // Read text from fiel
         static void ReadFiel(string pathAndFileName)
         {
-            foreach(var i in File.ReadAllLines(pathAndFileName))
+            foreach (var i in File.ReadAllLines(pathAndFileName))
                 Console.WriteLine(i);
         }
         //Show file from directory and return path by file
-        static string DisplayDirectoryFile(string path= @"C:\Users\alexg\OneDrive\Рабочий стол", string typeFile = "*.txt")
+        static string DisplayDirectoryFile(string path = @"C:\Users\alexg\OneDrive\Рабочий стол", string typeFile = "*.txt")
         {
             DirectoryInfo dir = new DirectoryInfo(path);
             FileInfo[] txt = dir.GetFiles(typeFile);
@@ -51,6 +59,10 @@ namespace WorkWithFielsAndSerialization
                 Console.WriteLine($"Name :{i.Name}, path: {i.FullName}");
             }
             //возвращаем путь к файлу text3.txt
+            //var g = from x in txt where x.Name == "text3.txt" select x;
+            //return g.First().FullName;//как отсортировать по имени в return
+
+            return txt.Where(x => x.Name == "text3.txt").First().FullName;
             var g = from x in txt where x.Name == "text3.txt" select x;
             return g.First().FullName;//как отсортировать по имени в return
         }
@@ -67,15 +79,56 @@ namespace WorkWithFielsAndSerialization
                     writer.Write(i);
             }
         }
-        static void ReadText(string path= @"E:\UseIO\text3.txt")
+        static void ReadText(string path = @"E:\UseIO\text3.txt")
         {
-            using(StreamReader reader = File.OpenText(path))
+            using (StreamReader reader = File.OpenText(path))
             {
                 string result = null;
                 while ((result = reader.ReadLine()) != null)
                     Console.WriteLine(result);
                 //string gg = reader.ReadToEnd();
                 //Console.WriteLine(gg);
+            }
+        }
+        //СЕРИАЛИЗАЦИЯ
+        [Serializable]
+        class People
+        {
+            public string name { get; set; }
+            public string surname { get; set; }
+            public int age { get; set; }
+            public People(string n, string sn, int a)
+            {
+                name = n;
+                surname = sn;
+                age = a;
+            }
+            void Display()
+            {
+                Console.WriteLine($"Name: {name}, Surname: {surname}, Age: {age}");
+            }
+            public override string ToString()
+            {
+                return $"{name} {surname} {age}";
+            }
+        }
+        public static void SerializateAsBinaryFormat(object objectToSerialization, string path)
+        {
+            BinaryFormatter binary = new BinaryFormatter();
+            //Создаем поток в котором создаем файл по пути и с именем path
+            using (Stream fstrem = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                binary.Serialize(fstrem, objectToSerialization);
+            }
+            Console.WriteLine("Object is serializated");
+        }
+        public static object Deserializate(string fileName)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (Stream fstream = File.OpenRead(fileName))
+            {
+                People people = (People)formatter.Deserialize(fstream);
+                return people;
             }
         }
     }

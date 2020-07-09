@@ -11,7 +11,8 @@ namespace Learn.Net
         static void Main(string[] args)
         {
             int[] test = { 2, 1, 1, 1, 1, 1, 1 };
-            Console.WriteLine(test.GroupBy(x=>x).Single(x=>x.Count()==1).Key);//what it is&&&
+            var a = test.GroupBy(x => x);//разделяет даніе на группи
+            Console.WriteLine(test.GroupBy(x=>x).Single(x=>x.Count()==1).Key);
             //Как через линкю найти  повторяющияся символ 
             
 
