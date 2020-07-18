@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsynAndMultiThreading", "As
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkWithFielsAndSerialization", "WorkWithFielsAndSerialization\WorkWithFielsAndSerialization.csproj", "{299E7AEE-1412-450C-BA74-11604D7CE668}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingEntityFramework", "UsingEntityFramework\UsingEntityFramework.csproj", "{3252C813-7E70-43AD-A316-103DE7E66792}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{299E7AEE-1412-450C-BA74-11604D7CE668}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{299E7AEE-1412-450C-BA74-11604D7CE668}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{299E7AEE-1412-450C-BA74-11604D7CE668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3252C813-7E70-43AD-A316-103DE7E66792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3252C813-7E70-43AD-A316-103DE7E66792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3252C813-7E70-43AD-A316-103DE7E66792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3252C813-7E70-43AD-A316-103DE7E66792}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
